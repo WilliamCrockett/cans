@@ -117,6 +117,7 @@ const setTwd = function () {
   } else {
     inputTwd = tmp
     $('#currentTWD').html(inputTwd)
+    $('#twd').val('')
   }
   console.log(inputTwd)
 }
