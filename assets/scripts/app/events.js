@@ -19,7 +19,7 @@ const markPos2 = {
   long: 0
 }
 
-const markPos3 = { // PE
+const markPos3 = { // Paarden Eiland
   lat: -33.90655,
   long: 18.46816666666667
 }
@@ -33,7 +33,7 @@ const getPosition = function () {
     boatPos.long = position.coords.longitude
     console.log(boatPos)
 
-    const answer = geolib.getRhumbLineBearing(
+    const answer = geolib.getRhumbLineBearing( // extend to use marks from marks.js
       {latitude: boatPos.lat, longitude: boatPos.long},
       {latitude: markPos.lat, longitude: markPos.long}
     )
@@ -93,15 +93,30 @@ const setMarkInfo = function () {
     {latitude: markPos3.lat, longitude: markPos3.long}
   )
 
-  const twa = courseToMake - 90 // hard coded TWD
+  const twa = courseToMake - inputTwd
+
+  const distanceAsNm = (distanceToMark / 1852).toFixed(2)
+
 
   console.log('ctm is', courseToMake)
   console.log('distance is', distanceToMark)
   console.log('TWA is', twa)
+  console.log('distanceAsNm is', distanceAsNm)
+  $('#twaBetweenMarks').html(Math.floor(twa))
+  $('#ctmBetweenMarks').html(Math.floor(courseToMake))
+  $('#distanceToMake').html(distanceAsNm)
 }
 
 const setTwd = function () {
-  inputTwd = $('#twd').val()
+  const tmp = $('#twd').val()
+  if (!tmp) {
+    alert('cannot be emtpy. please enter a value between 0 and 360')
+  }
+  if (tmp > 360 || tmp < 0) {
+    alert('must be between 0 and 360')
+  } else {
+    inputTwd = tmp
+  }
   console.log(inputTwd)
 }
 

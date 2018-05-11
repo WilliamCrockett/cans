@@ -19,7 +19,7 @@
             <button class="btn btn-primary navbar-button" id="page1" type="click">page 1</button>
             <button class="btn btn-primary navbar-button" id="page2" type="click">page 2</button>
               <!-- <label for="twd" class="col-sm-3 control-label label-twd">TWD:</label> -->
-                <input type="text" name="twd" class="col-sm-3 form-control input-twd" id="twd" placeholder="Enter TWD">
+                <input max="360" min="0" type="number" name="twd" class="col-sm-3 form-control input-twd" id="twd" placeholder="Enter TWD" >
                 <button type="click" class="col-sm-3 btn btn-primary save-twd" id="setTwd">Save TWD</button>
                 <label class="control-label label-current-twd">Current TWD: <span id="currentTWD">None</span></label>
           </div>
@@ -81,7 +81,7 @@
             </div>
           </form>
         </div>
-        <button type="button" class="btn btn-primary" id="setMarkInfo">Click me to see the stuff</button>
+        <button type="button" class="btn btn-primary" id="setMarkInfo">Click me to see the stuff (still hardcoded...)</button>
 
         <table class="table table-striped table-bordered" id="informationTable">
           <th>TWA</th>
