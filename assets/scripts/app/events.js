@@ -116,6 +116,7 @@ const setTwd = function () {
     alert('must be between 0 and 360')
   } else {
     inputTwd = tmp
+    $('#currentTWD').html(inputTwd)
   }
   console.log(inputTwd)
 }
