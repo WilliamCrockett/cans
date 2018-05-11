@@ -1,10 +1,27 @@
 'use strict'
 
 const geolib = require('geolib')
+const marks = require('./marks')
+
+let inputTwd = 0
 
 const boatPos = {
   lat: 0,
   long: 0
+}
+
+const markPos = {
+  lat: -33.883424,
+  long: 18.447654
+}
+const markPos2 = {
+  lat: 0,
+  long: 0
+}
+
+const markPos3 = { // PE
+  lat: -33.90655,
+  long: 18.46816666666667
 }
 
 const getPosition = function () {
@@ -16,14 +33,6 @@ const getPosition = function () {
     boatPos.long = position.coords.longitude
     console.log(boatPos)
 
-    const markPos = {
-      lat: -33.883424,
-      long: 18.447654
-    }
-    const markPos2 = {
-      lat: 0,
-      long: 0
-    }
     const answer = geolib.getRhumbLineBearing(
       {latitude: boatPos.lat, longitude: boatPos.long},
       {latitude: markPos.lat, longitude: markPos.long}
@@ -40,6 +49,7 @@ const getPosition = function () {
   })
 }
 
+// Testing
 const calculateBearing = function () {
   const p1 = {
     x: -33.899928,
@@ -57,9 +67,52 @@ const calculateBearing = function () {
   console.log(answer)
 }
 
+const showPage1 = function () {
+  $('.table-p-1').css('display', 'block')
+  $('.table-p-2').css('display', 'none')
+}
+
+const showPage2 = function () {
+  $('.table-p-2').css('display', 'block')
+  $('.table-p-1').css('display', 'none')
+}
+
+const moveToTop = function () {
+  console.log('hello')
+}
+
+const setMarkInfo = function () {
+  console.log('sup cracker')
+  const courseToMake = geolib.getRhumbLineBearing(
+    {latitude: markPos.lat, longitude: markPos.long},
+    {latitude: markPos3.lat, longitude: markPos3.long}
+  )
+
+  const distanceToMark = geolib.getDistance(
+    {latitude: markPos.lat, longitude: markPos.long},
+    {latitude: markPos3.lat, longitude: markPos3.long}
+  )
+
+  const twa = courseToMake - 90 // hard coded TWD
+
+  console.log('ctm is', courseToMake)
+  console.log('distance is', distanceToMark)
+  console.log('TWA is', twa)
+}
+
+const setTwd = function () {
+  inputTwd = $('#twd').val()
+  console.log(inputTwd)
+}
+
 const addHandlers = () => {
-  $('#positionButton').on('click', calculateBearing)
+  // $('#positionButton').on('click', calculateBearing)
   $('#calcBearing').on('click', getPosition)
+  $('#page1').on('click', showPage1)
+  $('#page2').on('click', showPage2)
+  $('#markOne').on('click', moveToTop) // extend this, dynmically TODO
+  $('#setMarkInfo').on('click', setMarkInfo)
+  $('#setTwd').on('click', setTwd)
 }
 
 module.exports = {

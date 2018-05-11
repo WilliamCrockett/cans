@@ -15,32 +15,89 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              Cans
-              <!-- <img alt="Cans" src="#"> -->
-            </a>
+            <a class="navbar-brand" href="#">Cans</a>
+            <button class="btn btn-primary navbar-button" id="page1" type="click">page 1</button>
+            <button class="btn btn-primary navbar-button" id="page2" type="click">page 2</button>
+              <!-- <label for="twd" class="col-sm-3 control-label label-twd">TWD:</label> -->
+                <input type="text" name="twd" class="col-sm-3 form-control input-twd" id="twd" placeholder="Enter TWD">
+                <button type="click" class="col-sm-3 btn btn-primary save-twd" id="setTwd">Save TWD</button>
+                <label class="control-label label-current-twd">Current TWD: <span id="currentTWD">None</span></label>
           </div>
         </div>
       </nav>
 
-      <div class="content-table" id="contentTable">
-        <table class="table table-striped table-bordered" id="crewsTable">
+      <div class="content-table table-p-1" id="contentTable1">
+
+        <!-- <row>
+          <label for="twd" class="col-sm-3 control-label label-twd">TWD:</label>
+          <input type="text" name="twd" class="col-sm-3 form-control input-twd" id="twd" placeholder="123">
+          <button type="click" class="col-sm-3 btn btn-primary save-twd">Save TWD</button>
+        </row>
+
+        <label class="control-label label-current-twd">Current TWD: <span id="currentTWD">None</span></label> -->
+
+
+
+        <table class="table table-striped table-bordered" id="marksTable">
           <th>Mark name</th>
           <th>Bearing from boat</th>
 
-          <tr>
+          <tr id="markOne">
             <td>Mark 1</td>
-            <td id="markBearing">085</td>
+            <td id="markBearing">085 (this is dummy)</td>
           </tr>
-          <tr>
+          <tr id="markTwo">
             <td>Mark 2</td>
-            <td id="markBearing2">090</td>
+            <td id="markBearing2">090 (this is dummy)</td>
           </tr>
         </table>
-        <button class="btn btn-primary" id="calcBearing" type="click">Click me to update the bearing</button>
       </div>
 
 
+
+      <div class="content-table table-p-2" id="contentTable2">
+        <div class="set-mark-1 set-marks">
+          <form>
+            <div class="col-sm-9 pad-5">
+              <label for="select">Select mark from:</label>
+              <select class="select-box" name="mark1[mark_name]">
+                <option value="milnerton">Milnerton</option>
+                <option value="paardeneiland">Paarden Eiland</option>
+              </select>
+              <button class="btn" type="button">set</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="set-mark-2 set-marks">
+          <form>
+            <div class="col-sm-9 pad-5">
+              <label for="select">Select mark to:</label>
+              <select class="select-box" name="mark1[mark_name]">
+                <option value="milnerton">Milnerton</option>
+                <option value="paardeneiland">Paarden Eiland</option>
+              </select>
+              <button class="btn" type="button">set</button>
+            </div>
+          </form>
+        </div>
+        <button type="button" class="btn btn-primary" id="setMarkInfo">Click me to see the stuff</button>
+
+        <table class="table table-striped table-bordered" id="informationTable">
+          <th>TWA</th>
+          <th>Course to make</th>
+          <th>Distance</th>
+
+          <tr>
+            <td id="twaBetweenMarks">0</td>
+            <td id="ctmBetweenMarks">0</td>
+            <td id="distanceToMake">0</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <button class="btn btn-primary" id="calcBearing" type="button">Click me to force a new position</button>
 
     </body>
 </html>

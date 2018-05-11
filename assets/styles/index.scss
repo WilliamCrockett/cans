@@ -1,2 +1,55 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.label-twd {
+  float: right;
+  clear: both;
+  // margin-right: 5px;
+  max-width: 100px;
+  padding: 10px;
+}
+
+.input-twd {
+  max-width: 100px;
+  display: inline;
+  margin-left: 50px; // fix this shit TODO
+}
+
+.label-current-twd {
+  max-width: 200px;
+  text-align: right;
+}
+
+.save-twd {
+  display: inline;
+}
+
+.navbar-button {
+  padding-top: 10px;
+  margin-top: 8px;
+}
+
+.table-p-1 {
+  display: none;
+}
+
+.table-p-2 {
+  display: none;
+}
+
+.set-marks {
+  border: 2px solid black;
+  max-width: 40%;
+  margin-bottom: 25px;
+}
+
+.set-mark-1 {
+  float: left;
+  overflow: hidden;
+}
+
+.set-mark-2 {
+  float: right;
+  // clear: both;
+  overflow: hidden;
+}
